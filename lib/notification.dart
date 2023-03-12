@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class Notifications {
@@ -15,11 +16,9 @@ class Notifications {
     await _flutterLocalNotificationsPlugin.initialize(initializationSettings);
   }
 
-  void showNotification({
-    required int id,
-    required String title,
-    required String body,
-  }) async {
+  void showNotification({required String title, required String body}) async {
+    final int id = Random().nextInt(1000);
+
     AndroidNotificationDetails androidNotificationDetails =
         const AndroidNotificationDetails("channelId", "channelName");
 

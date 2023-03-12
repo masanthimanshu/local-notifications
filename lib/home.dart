@@ -11,12 +11,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final Notifications _notificationServices = Notifications();
 
-  int _id = 0;
-
   @override
   void initState() {
     _notificationServices.initializeNotifications();
-
     super.initState();
   }
 
@@ -27,10 +24,7 @@ class _HomePageState extends State<HomePage> {
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            _id++;
-
             _notificationServices.showNotification(
-              id: _id,
               title: "Title Goes Here",
               body: "Body Goes Here",
             );
